@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%extends "nav.html"%}
+{%load static%}
+
+{% block title%}Search{% endblock title%}
+
+{% block body %}
+<div class="jumbotron">
+
+  {%if searched%}
+      <h1>You Searced For {{searched}}</h1>
+      <table style = "border: 2px solid black;
+      border-collapse: collapse;">
+        <tr>
+        <th style="border: 2px solid black;
+        border-collapse: collapse;">Name</th>
+        <th style="border: 2px solid black;
+        border-collapse: collapse;">Phone</th>  
+        </tr>
+        
+        {% for emp in empl%}
+        <tr>
+          <td style = "border: 2px solid black;
+          border-collapse: collapse;">{{emp}}</td>
+          <td style = "border: 2px solid black;
+          border-collapse: collapse;">{{emp.phone}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+</div>
+          <br>
+
+
+  {% elif not searched %}
+      <h1>Oops! Nothing With This Name..</h1>
+
+
+  {% endif %}
+</div>
+</body>
+</html>
+{% endblock body %}

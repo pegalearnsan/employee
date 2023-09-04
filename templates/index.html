@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%extends "nav.html"%}
+{%load static%}
+
+{% block title%}Home{% endblock title%}
+
+
+{% block body %}
+    
+<div class="jumbotron">
+  <h1>Employee Data: </h1>
+
+  <form action="/" method="post">
+    {%csrf_token%}
+
+
+<label for="name">Name</label><br>
+<input type="text" id = "name" name = "name" placeholder="Employee Name" required><br><br>
+<label for="phone">Phone</label><br>
+<input type="tel" id="phone" name = "phone"  maxlength="12" placeholder="Employee Phone Number" required>
+<br><br>
+
+<button type="submit" class = "bt btn-primary" id="submit">Submit</button>
+
+  </form>
+
+  <script>
+    $(function() {
+      $( "#name" ).autocomplete({
+        source: "{% url 'autocomplete_search' %}"
+      });
+    });
+  </script>
+</div>
+</div>
+<br>
+
+
+</div>
+
+
+
+{%endblock body %}

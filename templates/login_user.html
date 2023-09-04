@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%extends "nav.html"%}
+{%load static%}
+
+{% block title%}Register{% endblock title%}
+
+{% block body %}
+<div class="jumbotron">
+    
+    <h1>Login:</h1><br>
+    <form action="" method="post">
+        {% csrf_token %}
+            
+                <div class="form-group">
+              <label  for="login_username">Username:</label>
+              <input type="text" class="form-control col-sm-2" id="login_username" name="login_username" aria-describedby="emailHelp" placeholder="Enter Username">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label  for="login_password">Password</label>
+              <input type="password" class="form-control col-sm-2" id="login_password" name="login_password" placeholder="Password">
+            </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+
+       
+    </div>
+    
+
+{% endblock body %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%extends "nav.html"%}
+{%load static%}
+{% load crispy_forms_tags %}
+
+{% block title%}Register{% endblock title%}
+
+{% block body %}
+<div class="jumbotron">
+    
+    <h1>Register:</h1><br>
+
+    {% if registered %}
+    <H1>Thank You For Registering</H1>
+    {% else %}
+    <form  method="post">
+        {% csrf_token %}
+            
+             {{user_form|crispy}}     
+             <br><br>
+             
+             <input type="submit" class="btn btn-success" value='Register'>
+          </form>
+
+{%endif%}
+       
+    </div>
+    
+
+{% endblock body %}
